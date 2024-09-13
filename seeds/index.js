@@ -21,7 +21,8 @@ db.on("error", (err) => {
     logError(err);
 });
 
-const server = app.listen(port, () => {  /*...app.listen() starts the server as soon as it's invoked...*/
+const server = app.listen(port, () => {
+    /*...app.listen() starts the server as soon as it's invoked...*/
     const currentTime = new Date().toLocaleString();
     console.log(`SERVING ON PORT ${port}! \nCurrent time: ${currentTime}`);
 });
@@ -32,18 +33,24 @@ const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const randomCity = Math.floor(Math.random() * cities.length);
+        const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
             location: `${cities[randomCity].city}`,
             title: `${sample(descriptors)} ${sample(places)}`,
+            image: `https://picsum.photos/400?random=${Math.random()}`,
+            description:
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!",
+            price,
         });
         await camp.save();
     }
 };
 
-seedDB().then(async() => {
+seedDB().then(async () => {
     await console.log("Seeding complete, closing connection...");
-    await db.close()
-        .then(async() => {
+    await db
+        .close()
+        .then(async () => {
             await console.log("DB CONNECTION CLOSED.");
             server.close();
             // process.exit(0); /*CODE(0):OK...Necessary to exit Node.js, if for some reason doesn't exits!!! */
