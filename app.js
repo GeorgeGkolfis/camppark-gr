@@ -34,6 +34,8 @@ app.engine("ejs", ejsMate);
 app.use(express.urlencoded());
 app.use(methodOverride("_method"));
 
+app.use('/campgrounds', campgrounds)
+
 const validateCampground = (req, res, next) => {
     const { error } = campgroundSchema.validate(req.body);
     if (error) {
@@ -57,8 +59,6 @@ const validateReview = (req, res, next) => {
 app.get("/", (req, res) => {
     res.render("home");
 });
-
-
 
 app.post(
     "/campgrounds/:id/reviews",
