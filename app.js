@@ -11,7 +11,7 @@ const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
 const { campgroundSchema, reviewSchema } = require("./schemas.js");
 const campgrounds = require('./routes/campgrounds');
-
+const reviews = require('./routes/reviews');
 
 async function main() {
     await mongoose.connect("mongodb://127.0.0.1:27017/camppark-greece");
@@ -23,7 +23,6 @@ main().catch((err) => console.error("INITIAL DB CONNECTION ERROR!!! :", err));
 const db = mongoose.connection;
 function logError(err) {
     console.error("RUNTIME CONNECTION ERROR: ", err);
-    // Here you can also add additional error handling such as retry logic
 }
 db.on("error", (err) => {
     logError(err);
