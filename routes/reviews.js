@@ -1,16 +1,12 @@
 const express = require("express");
-const app = express();
-const path = require("path");
-const mongoose = require("mongoose");
-const ejsMate = require("ejs-mate");
-const methodOverride = require("method-override");
-const port = 3000;
+const router = express.Router({ mergeParams: true });
 const Campground = require("./models/campground");
 const Review = require("./models/review");
 const catchAsync = require("./utils/catchAsync");
 const ExpressError = require("./utils/ExpressError");
-const { campgroundSchema, reviewSchema } = require("./schemas.js");
-const campgrounds = require('./routes/campgrounds');
+const { reviewSchema } = require("./schemas.js");
+
+module.exports = router;
 
 
 const validateReview = (req, res, next) => {
@@ -23,7 +19,7 @@ const validateReview = (req, res, next) => {
     }
 };
 
-app.post(
+router.post(
     "/campgrounds/:id/reviews",
     validateReview,
     catchAsync(async (req, res) => {
@@ -36,7 +32,7 @@ app.post(
     })
 );
 
-app.delete(
+router.delete(
     "/campgrounds/:id/reviews/:reviewId",
     catchAsync(async (req, res) => {
         const { id, reviewId } = req.params;
