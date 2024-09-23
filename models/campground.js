@@ -18,7 +18,7 @@ const CampgroundSchema = new Schema({
 
 CampgroundSchema.post("findOneAndDelete", async function (doc) {
     // I use "findOneAndDelete" middleware because in app.delete("/campgrounds/:id",.....),
-    // i use (model).findByIdAndDelete() that triggers this specific Query middleware.
+    // i use (model).findByIdAndDelete() which triggers this specific Query middleware.
     if (doc) {
         await Review.deleteMany({
             _id: {
