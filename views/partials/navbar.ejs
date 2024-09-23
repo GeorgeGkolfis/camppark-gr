@@ -11,11 +11,19 @@
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="/campgrounds">Campgrounds</a>
                 <a class="nav-link" href="/campgrounds/new">New Campground</a>
+            </div>
+            <div class="navbar-nav">
+                <% if(!currentUser) {%>
+                <a class="nav-link active" href="/login">Login</a>
+                <a class="nav-link active" href="/register">Register</a>
+                <% } else {%>
+                <a class="nav-link active" href="/logout">Logout</a>
+                <% } %>
             </div>
         </div>
     </div>
