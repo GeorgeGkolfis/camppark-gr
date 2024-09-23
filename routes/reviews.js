@@ -1,5 +1,6 @@
 const express = require("express");
-const router = express.Router({ mergeParams: true }); // With mergeParams: true, this will include { campgroundId: '.......' }
+const router = express.Router({ mergeParams: true });
+// With mergeParams: true, this will include { id: '.......' } in app.use("/campgrounds/:id/reviews", reviews);
 const Campground = require("../models/campground");
 const Review = require("../models/review");
 const catchAsync = require("../utils/catchAsync");
