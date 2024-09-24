@@ -8,6 +8,10 @@ const CampgroundSchema = new Schema({
     price: Number,
     description: String,
     location: String,
+    author: {
+        type: Schema.Types.ObjectId,
+        ref: "User",
+    },
     reviews: [
         {
             type: Schema.Types.ObjectId,
@@ -28,5 +32,4 @@ CampgroundSchema.post("findOneAndDelete", async function (doc) {
     }
 });
 
-const Campground = mongoose.model("Campground", CampgroundSchema);
-module.exports = Campground;
+module.exports = mongoose.model("Campground", CampgroundSchema);
