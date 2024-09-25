@@ -7,6 +7,8 @@
             <div class="mb-3">
                 <label class="form-label" for="title">Title</label>
                 <input class="form-control" type="text" id="title" name="campground[title]" value="<%=campground.title %>" required />
+                <!--name="campground[title]"--Nested Form Data(use "req.body.campground"(object stucture-add spread(...)for copy) in your route handler)-->
+                <!--name="title"--Flat Form Data(use "req.body" in your route handler)-->
                 <div class="valid-feedback">Looks good!</div>
             </div>
             <div class="mb-3">
@@ -38,7 +40,9 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" id="description" name="campground[description]" required><%= campground.description%></textarea>
+                <textarea class="form-control" type="text" id="description" name="campground[description]" required>
+<%= campground.description%></textarea
+                >
                 <div class="valid-feedback">Looks good!</div>
             </div>
             <div class="mb-3">
