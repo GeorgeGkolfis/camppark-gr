@@ -42,6 +42,16 @@ module.exports.validateCampground = (req, res, next) => {
     }
 };
 
+module.exports.validateStarRating = (req, res, next) => {
+    const { id } = req.params;
+    const rating = req.body.review.rating;
+    if (rating === "-1") {
+        req.flash("error", "Please select a rating before submitting!");
+        return res.redirect(`/campgrounds/${id}`);
+    }
+    next();
+};
+
 module.exports.validateReview = (req, res, next) => {
     const { error } = reviewSchema.validate(req.body);
     if (error) {
@@ -55,7 +65,6 @@ module.exports.validateReview = (req, res, next) => {
 module.exports.storeReturnTo = (req, res, next) => {
     if (req.session.returnTo) {
         res.locals.returnTo = req.session.returnTo;
-        console.log(res.locals.returnTo)
     }
     next();
 };
