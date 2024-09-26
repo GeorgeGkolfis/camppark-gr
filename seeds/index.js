@@ -35,13 +35,60 @@ const seedDB = async () => {
         const randomCity = Math.floor(Math.random() * cities.length);
         const price = Math.floor(Math.random() * 20) + 10;
         const camp = new Campground({
-            author: '66f159528f16aba3af107bfd',
+            author: "66f159528f16aba3af107bfd",
             location: `${cities[randomCity].city}`,
             title: `${sample(descriptors)} ${sample(places)}`,
-            image: `https://picsum.photos/400?random=${Math.random()}`,
             description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!",
             price,
+            // image: `https://picsum.photos/400?random=${Math.random()}`,
+            images: [
+                {
+                    url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287395/4_vertical_grey_rocks_hem_in_the_lush_and_narrow_valley_the_pineios_uses_to_escape_to_the_sea-1_d6izll.jpg",
+                    filename:
+                        "CampPark-Greece/4_vertical_grey_rocks_hem_in_the_lush_and_narrow_valley_the_pineios_uses_to_escape_to_the_sea-1_d6izll",
+                },
+                {
+                    url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287392/4_the_old_stone_bridge_constructed_in_1787_close_to_tsangarada_village_pelion_mountain-1_oaqcu6.jpg",
+                    filename: "CampPark-Greece/4_the_old_stone_bridge_constructed_in_1787_close_to_tsangarada_village_pelion_mountain-1_oaqcu6",
+                },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287392/sunset_on_a_traditional_alley_in_megalo_papingo_village_in_ioannina-1_udta5q.jpg",
+                //     filename: "CampPark-Greece/sunset_on_a_traditional_alley_in_megalo_papingo_village_in_ioannina-1_udta5q",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287392/shutterstock_1188663136_aerial_view_of_the_old_stone_bridge_in_klidonia_zagoria_in_the_autumn_epirus_western_greece._this_arch_bridge_with_elongated_arch_built_in_1853_qnt3j1.jpg",
+                //     filename: "CampPark-Greece/shutterstock_1188663136_aerial_view_of_the_old_stone_bridge_in_klidonia_zagoria_in_the_autumn_epirus_western_greece._this_arch_bridge_with_elongated_arch_built_in_1853_qnt3j1",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287386/picked_olives_0_aak0dl.jpg",
+                //     filename: "CampPark-Greece/picked_olives_0_aak0dl",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287386/christian_orthodox_church_in_porto_lagos_vistonida_lake_xanthi-1_hp3klh.jpg",
+                //     filename: "CampPark-Greece/christian_orthodox_church_in_porto_lagos_vistonida_lake_xanthi-1_hp3klh",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287386/shutterstock_1188660865_aerial_view_of_the_the_vikos_gorge_in_the_autumn_dtxrlk.jpg",
+                //     filename: "CampPark-Greece/shutterstock_1188660865_aerial_view_of_the_the_vikos_gorge_in_the_autumn_dtxrlk",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287385/3_the_prespa_lakes_also_known_as_prespes_is_probably_one_of_greeces_best-kept_secrets-petar_petkovski-1_yltthf.jpg",
+                //     filename: "CampPark-Greece/3_the_prespa_lakes_also_known_as_prespes_is_probably_one_of_greeces_best-kept_secrets-petar_petkovski-1_yltthf",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287383/the_magical_landscape_of_mt_boeblx.jpg",
+                //     filename: "CampPark-Greece/the_magical_landscape_of_mt_boeblx",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287380/4_the_serpentine_nestos_river-1_r7zqds.jpg",
+                //     filename: "CampPark-Greece/4_the_serpentine_nestos_river-1_r7zqds",
+                // },
+                // {
+                //     url: "https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287380/thyme__cheese__bread__tomatoes_and_olives_from_crete_fbaelo.jpg",
+                //     filename: "CampPark-Greece/thyme__cheese__bread__tomatoes_and_olives_from_crete_fbaelo",
+                // },
+            ],
         });
         await camp.save();
     }
