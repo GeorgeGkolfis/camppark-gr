@@ -11,15 +11,9 @@
             </div>
             <div class="mb-3">
                 <label class="form-label" for="location">Location</label>
-                <input class="form-control" type="text" id="location" name="campground[location]" required />
+                <input class="form-control" type="text" id="location" name="campground[location]" placeholder="e.g. Athens, GR" required />
                 <div class="valid-feedback">Looks good!</div>
             </div>
-            <input type="file" name="image" id="" multiple>
-            <!-- <div class="mb-3">
-                <label class="form-label" for="image">Image Url</label>
-                <input class="form-control" type="text" id="image" name="campground[image]" required />
-                <div class="valid-feedback">Looks good!</div>
-            </div> -->
             <div class="mb-3">
                 <label class="form-label" for="price">Campground Price</label>
                 <div class="input-group">
@@ -28,7 +22,7 @@
                         type="text"
                         class="form-control"
                         id="price"
-                        placeholder="0.00"
+                        placeholder="00"
                         aria-label="price"
                         aria-describedby="price-label"
                         name="campground[price]"
@@ -41,6 +35,11 @@
                 <label class="form-label" for="description">Description</label>
                 <textarea class="form-control" type="text" id="description" name="campground[description]" required></textarea>
                 <div class="valid-feedback">Looks good!</div>
+            </div>
+            <div class="mb-3 custom-file">
+                <label for="formFileMultiple" class="form-label">Add image(s)...</label>
+                <input class="form-control custom-file-input" type="file" id="formFileMultiple" name="image" multiple />
+                <div class="mb-1 custom-file-label overflow-auto"></div>
             </div>
             <div class="mb-3">
                 <button class="btn btn-success">Add Campground</button>
