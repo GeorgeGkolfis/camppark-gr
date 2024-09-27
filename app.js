@@ -47,6 +47,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(express.static(path.join(__dirname, "public")));
 
+app.use((req, res, next) => {
+    req.setTimeout(60000); //server's 60 seconds timeout
+    next();
+  });
+
 const sessionConfig = {
     secret: "secretofthesecrets!",
     resave: false,
