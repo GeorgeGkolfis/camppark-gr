@@ -8,7 +8,11 @@
 <div class="card" mb-3>
     <div class="row">
         <div class="col-md-4">
-            <img class="img-fluid" alt="" src="<%=campground.image%>" />
+            <%if(campground.images.length) {%>
+            <img class="img-fluid" alt="" src="<%=campground.images[0].url%>" />
+            <% }else {%>
+            <img class="img-fluid" alt="" src="https://res.cloudinary.com/dinr9lnhw/image/upload/v1727287392/shutterstock_1188663136_aerial_view_of_the_old_stone_bridge_in_klidonia_zagoria_in_the_autumn_epirus_western_greece._this_arch_bridge_with_elongated_arch_built_in_1853_qnt3j1.jpg" />
+            <% } %>
         </div>
         <div class="col-md-8">
             <div class="card-body">
