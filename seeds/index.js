@@ -29,18 +29,32 @@ const server = app.listen(port, () => {
 
 const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
+function extractCoordinatesFromUrl(url) {
+    const matches = url.match(/q=(-?\d+.\d+),(-?\d+.\d+)/); // Extract coordinates from Google Maps URL
+    if (matches) {
+        return [parseFloat(matches[2]), parseFloat(matches[1])]; // Longitude first
+    }
+    return [0, 0]; // Default in case of no match
+}
+
 const seedDB = async () => {
     await Campground.deleteMany({});
     for (let i = 0; i < 50; i++) {
         const randomCity = Math.floor(Math.random() * cities.length);
         const price = Math.floor(Math.random() * 20) + 10;
+
         const camp = new Campground({
+            //YOUR USER ID(author)
             author: "66f159528f16aba3af107bfd",
-            location: `${cities[randomCity].city}`,
+            location: `${cities[randomCity].city}, GR`,
             title: `${sample(descriptors)} ${sample(places)}`,
             description:
                 "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam dolores vero perferendis laudantium, consequuntur voluptatibus nulla architecto, sit soluta esse iure sed labore ipsam a cum nihil atque molestiae deserunt!",
             price,
+            geometry: {
+                type: "Point",
+                coordinates: extractCoordinatesFromUrl(cities[randomCity].Location),
+            },
             // image: `https://picsum.photos/400?random=${Math.random()}`,
             images: [
                 {
