@@ -32,8 +32,6 @@ const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/camppark-greece";
 
 async function main() {
     await mongoose.connect(dbUrl, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
         serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
         socketTimeoutMS: 45000, // Optional, ensures the connection is properly timed out
     });
