@@ -86,11 +86,13 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: inProduction ? false : true, // Avoid unnecessary sessions in production
     cookie: {
+        domain: "camppark-gr.onrender.com/",
+        path: "/",
         httpOnly: true,
         secure: inProduction ? true : false, // only accessible via HTTP(S)
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days in milliseconds
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        sameSite: 'lax',
+        sameSite: "none",
     },
 };
 app.use(session(sessionConfig));
