@@ -77,9 +77,12 @@ store.on("error", function (e) {
     console.log("SESSION STORE ERROR", e);
 });
 
+app.enable('trust proxy');
+
 const sessionSecret = process.env.SESSION_SECRET || "thisshouldbeasecret!";
 
 const sessionConfig = {
+    proxy: true,
     store,
     name: "session",
     secret: sessionSecret,
@@ -91,7 +94,7 @@ const sessionConfig = {
         secure: inProduction ? true : false, // only accessible via HTTP(S)
         expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days in milliseconds
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        sameSite: "none",
+        sameSite: inProduction ? 'none' : 'lax',
     },
 };
 app.use(session(sessionConfig));
