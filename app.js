@@ -86,7 +86,6 @@ const sessionConfig = {
     resave: false,
     saveUninitialized: inProduction ? false : true, // Avoid unnecessary sessions in production
     cookie: {
-        domain: "camppark-gr.onrender.com/",
         path: "/",
         httpOnly: true,
         secure: inProduction ? true : false, // only accessible via HTTP(S)
