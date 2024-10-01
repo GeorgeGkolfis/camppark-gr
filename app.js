@@ -77,12 +77,13 @@ store.on("error", function (e) {
     console.log("SESSION STORE ERROR", e);
 });
 
-app.enable('trust proxy');
+// Globally affects how Express handles headers from a proxy
+app.enable('trust proxy'); // Express will trust the reverse proxy
 
 const sessionSecret = process.env.SESSION_SECRET || "thisshouldbeasecret!";
 
 const sessionConfig = {
-    proxy: true,
+    proxy: true, // Trust the proxy for session cookie handling
     store,
     name: "session",
     secret: sessionSecret,
