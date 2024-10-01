@@ -31,7 +31,13 @@ const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/camppark-greece";
 // const dbUrl = "mongodb://127.0.0.1:27017/camppark-greece";
 
 async function main() {
-    await mongoose.connect(dbUrl);
+    await mongoose.connect(dbUrl, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+        serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
+        socketTimeoutMS: 45000, // Optional, ensures the connection is properly timed out
+        keepAlive: true, // Keeps the connection alive
+    });
     console.log("INITIAL DB CONNECTION OPEN.");
 }
 
@@ -167,7 +173,7 @@ app.use((err, req, res, next) => {
     res.render("error", { err });
 });
 
-const port = process.env.PORT || 3000;;
+const port = process.env.PORT || 3000;
 app.listen(port, () => {
     const currentTime = new Date().toLocaleString();
     console.log(`SERVING ON PORT ${port}! \nCurrent time: ${currentTime}`);
