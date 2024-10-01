@@ -6,7 +6,9 @@
             <h4 class="alert-heading "><%=err.message%></h4>
             <!-- <p><%= err.stack %></p> -->
             <!-- <pre class="text-wrap"><%= err.stack %></pre> -->
-            <code class="text-wrap"><%= err.stack %></code>        
+            <% if (!inProduction) { %>
+            <code class="text-wrap"><%= err.stack %></code>
+            <% } %>        
         </div>
     </div>
 </div>
