@@ -36,7 +36,6 @@ async function main() {
         useUnifiedTopology: true,
         serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
         socketTimeoutMS: 45000, // Optional, ensures the connection is properly timed out
-        keepAlive: true, // Keeps the connection alive
     });
     console.log("INITIAL DB CONNECTION OPEN.");
 }
