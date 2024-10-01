@@ -88,8 +88,9 @@ const sessionConfig = {
     cookie: {
         httpOnly: true,
         secure: inProduction ? true : false, // only accessible via HTTP(S)
-        expires: Date.now() + 1000 * 60 * 60 * 24 * 7, // 7 days in milliseconds
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days in milliseconds
         maxAge: 1000 * 60 * 60 * 24 * 7,
+        sameSite: 'lax',
     },
 };
 app.use(session(sessionConfig));
