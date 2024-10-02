@@ -18,11 +18,11 @@
 - **Other Tools**: Cloudinary for image hosting, Maptieler for creating and customizing maps, Render for deployment. 
 
 ## Project Structure
-```├── cloudinary/                   # Configures and manages Cloudinary image uploads```│
-```├── controllers/                  # Contains the logic for handling requests```│  
-```├── models/                       # Mongoose schemas and models for MongoDB```│
-```├── node_modules/                 # Contains all npm packages and dependencies(You have to install it)```
-```├── public/                       # Static assets such as CSS, JavaScript, and images```
+```├── cloudinary/                   # Configures and manages Cloudinary image uploads```\
+```├── controllers/                  # Contains the logic for handling requests```\
+```├── models/                       # Mongoose schemas and models for MongoDB```\
+```├── node_modules/                 # Contains all npm packages and dependencies(You have to install it)```\
+```├── public/                       # Static assets such as CSS, JavaScript, and images```\
 ```├── routes/                       # Defines all the routes for the application```
 ```├── seeds/                        # Scripts for seeding the database with test data```
 ```├── utils/                        # Utility functions and middlewares ```
