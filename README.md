@@ -46,7 +46,7 @@ This project uses environment variables for configuration. Here’s an example o
 Make sure to set these up before running the application.
 
 ## Live Application
-The **CampPark Greece** application is deployed and can be accessed at https://camppark-gr.onrender.com(contact me to make it live).
+The **CampPark Greece** application is deployed and can be accessed at https://camppark-gr.onrender.com (contact me to make it live).
 
 ## Questions or Support
 If you have any questions, need assistance, or would like to provide feedback, please feel free to contact me at [georgiosgolfis@gmail.com].
