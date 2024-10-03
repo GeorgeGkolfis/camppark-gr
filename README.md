@@ -11,11 +11,11 @@
 - **Interactive Map**: Integrated with mapping services to visually explore campgrounds.
 
 ## Technologies Used
-- **Backend**: Node.js, Express.js
-- **Frontend**: EJS (Embedded JavaScript), HTML5, CSS3
-- **Database**: MongoDB
-- **Styling**: Bootstrap5, Custom CSS, responsive design
-- **Other Tools**: Cloudinary for image hosting, Maptieler for creating and customizing maps, Render for deployment. 
+- **Backend**: Node.js, Express.js, Mongoose(Object Data Modeling)
+- **Frontend**: JavaScript, EJS (Embedded JavaScript), CSS3
+- **Database**: MongoDB(Atlas)
+- **Styling**: Bootstrap5, Custom CSS3
+- **Other Tools**: Cloudinary(image hosting), Maptieler(creating and customizing maps), Render(deployment). 
 
 ## Project Structure
 ```├── cloudinary/            # Configures and manages Cloudinary image uploads```\
