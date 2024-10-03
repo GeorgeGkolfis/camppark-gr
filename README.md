@@ -6,7 +6,7 @@
 
 ## Features
 - **Search & Create Campsites**: Users can search for campsites and create their own.
-- **User Authentication**: Secure login and registration functionality(Strongly advices for better overhaul experience).
+- **User Authentication**: Secure login and registration functionality(Strongly recommended for better overhaul experience).
 - **Reviews and Ratings**: Users can review and rate campsites.
 - **Interactive Map**: Integrated with mapping services to visually explore campgrounds.
 
