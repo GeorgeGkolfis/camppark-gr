@@ -15,12 +15,11 @@
 ---
 
 ## ⚙️ Technologies Used
-- **Backend**: Node.js, Express.js, Mongoose(Object Data Modeling)
-- **Frontend**: JavaScript, EJS (Embedded JavaScript), CSS3
+- **Languages**: JavaScript, HTML, CSS
+- **Frameworks and Libraries**: Node.js, Express.js, Mongoose(Object Data Modeling), Bootstrap 
 - **Database**: MongoDB(Atlas)
-- **Styling**: Bootstrap5, Custom CSS3
-- **Other Tools**:☁️ Cloudinary(image hosting),🗺️ Maptieler(creating and customizing maps),🚀 Render(deployment).
-  
+- **Other Tools**: EJS(Embedded JavaScript), ☁️ Cloudinary(image hosting),🗺️ Maptieler(creating and customizing maps),🚀 Render(deployment).
+
 ---
 
 ## 📂 Project Structure
