@@ -4,10 +4,6 @@ if (!inProduction) {
     require("dotenv").config();
 }
 
-// console.log(process.env.NODE_ENV);
-// console.log(typeof process.env.NODE_ENV);
-// console.log(process.env.NODE_ENV !== "production");
-
 const express = require("express");
 const path = require("path");
 const mongoose = require("mongoose");
@@ -28,12 +24,11 @@ const campgroundRoutes = require("./routes/campgrounds");
 const reviewRoutes = require("./routes/reviews");
 
 const dbUrl = process.env.DB_URL || "mongodb://127.0.0.1:27017/camppark-greece";
-// const dbUrl = "mongodb://127.0.0.1:27017/camppark-greece";
 
 async function main() {
     await mongoose.connect(dbUrl, {
-        serverSelectionTimeoutMS: 30000, // Increase timeout to 30 seconds
-        socketTimeoutMS: 45000, // Optional, ensures the connection is properly timed out
+        serverSelectionTimeoutMS: 30000, 
+        socketTimeoutMS: 45000, 
     });
     console.log("INITIAL DB CONNECTION OPEN.");
 }
@@ -60,7 +55,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(mongoSanitize({ replaceWith: "_" }));
 
 app.use((req, res, next) => {
-    req.setTimeout(60000); //server's 60 seconds timeout
+    req.setTimeout(60000); 
     next();
 });
 
@@ -68,7 +63,7 @@ const mongoSecret = process.env.MONGO_STORE_SECRET || "thisshouldbeasecret!";
 
 const store = MongoStore.create({
     mongoUrl: dbUrl,
-    touchAfter: 60 * 60 * 24, //24 hours in seconds
+    touchAfter: 60 * 60 * 24, 
     crypto: {
         secret: mongoSecret,
     },
@@ -77,23 +72,22 @@ store.on("error", function (e) {
     console.log("SESSION STORE ERROR", e);
 });
 
-// Globally affects how Express handles headers from a proxy
-app.enable('trust proxy'); // Express will trust the reverse proxy
+app.enable('trust proxy'); 
 
 const sessionSecret = process.env.SESSION_SECRET || "thisshouldbeasecret!";
 
 const sessionConfig = {
-    proxy: true, // Trust the proxy for session cookie handling
+    proxy: true, 
     store,
     name: "session",
     secret: sessionSecret,
     resave: false,
-    saveUninitialized: inProduction ? false : true, // Avoid unnecessary sessions in production
+    saveUninitialized: inProduction ? false : true, 
     cookie: {
         path: "/",
         httpOnly: true,
-        secure: inProduction ? true : false, // only accessible via HTTP(S)
-        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), // 7 days in milliseconds
+        secure: inProduction ? true : false, 
+        expires: new Date(Date.now() + 1000 * 60 * 60 * 24 * 7), 
         maxAge: 1000 * 60 * 60 * 24 * 7,
         sameSite: inProduction ? 'none' : 'lax',
     },
@@ -144,15 +138,13 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
-//or "Static method"-> passport.use(User.createStrategy());
 
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    // console.log(req.session);
     res.locals.inProduction = inProduction;
-    res.locals.currentUser = req.user; /** from session because of passport */
+    res.locals.currentUser = req.user; 
     res.locals.success = req.flash("success");
     res.locals.error = req.flash("error");
     next();
