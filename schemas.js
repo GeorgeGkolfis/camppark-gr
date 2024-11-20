@@ -1,7 +1,6 @@
 const Joi = require("joi");
 const sanitizeHtml = require("sanitize-html");
 
-// Define a custom extension for Joi to add a new rule: escapeHTML
 const extension = (joi) => ({
     type: "string",
     base: joi.string(),
@@ -12,8 +11,8 @@ const extension = (joi) => ({
         escapeHTML: {
             validate(value, helpers) {
                 const clean = sanitizeHtml(value, {
-                    allowedTags: [], // No HTML tags allowed
-                    allowedAttributes: {}, // No attributes allowed
+                    allowedTags: [], 
+                    allowedAttributes: {}, 
                 });
                 if (clean !== value) return helpers.error("string.escapeHTML", { value });
                 return clean;
