@@ -36,7 +36,6 @@
 ```├── .gitignore             # Specifies files and directories to be ignored by Git```\
 ```├── app.js                 # Main application file, initializes and runs the Express server```\
 ```├── middleware.js          # Contains custom middleware functions for request processing and authentication```\
-```├── package-lock.json      # Locks the versions of installed npm packages to ensure consistent installations```\
 ```├── package.json           # Project metadata and dependencies```\
 ```├── README.md              # Project documentation (this file)```\
 ```└── schemas.js             # Defines Joi validation schemas for request data validation and sanitization```
@@ -55,7 +54,8 @@ Make sure to set these up before running the application.
 ---
 
 ## 🌐 Live Application
-The **CampPark Greece** application is deployed and can be accessed at https://camppark-gr.onrender.com (contact me to make it live).
+The **CampPark Greece** application is deployed and can be accessed at https://camppark-gr.onrender.com \
+(Note: Contact me at georgiosgolfis@gmail.com to make the application live, if it's not)
 
 ---
 
